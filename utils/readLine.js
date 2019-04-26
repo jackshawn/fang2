@@ -1,6 +1,5 @@
-const inquirer = require('inquirer')
-const city = require('../resource/city');
-const resource = require('../resource/resource');
+const inquirer = require('inquirer');
+const {city, platform} = require('../resource/config');
 
 let areaMin = undefined;
 let priceMin = undefined;
@@ -10,7 +9,7 @@ let priceMin = undefined;
  * @return {Promise};
  */
 
-let readLine = () => {
+module.exports = function() {
     return inquirer.prompt([
         {
             type: 'list',
@@ -21,10 +20,10 @@ let readLine = () => {
         },
         {
             type: 'checkbox',
-            name: 'resource',
+            name: 'platform',
             message: '选择房源',
-            default: Object.keys(resource),
-            choices: Object.keys(resource)
+            default: Object.keys(platform),
+            choices: Object.keys(platform)
         },
         {
             type: 'input',
@@ -104,6 +103,4 @@ let readLine = () => {
             ]
         },
     ])
-}
-
-module.exports = readLine;
+};

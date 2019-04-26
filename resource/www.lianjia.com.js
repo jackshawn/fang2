@@ -20,7 +20,7 @@ const fetchLianjia = url => {
                         result.push({
                             price: items.eq(i).find('.totalPrice span').text().trim(),
                             area: items.eq(i).find('.houseInfo').text().split('|')[2].trim().split('平米')[0],
-                            location: items.eq(i).find('.positionInfo').text().split('-')[1].trim() + '-' + items.eq(i).find('.houseInfo').text().split('|')[0].trim(),
+                            location: items.eq(i).find('.houseInfo').text().split('|')[0].trim(),
                             unitPrice: items.eq(i).find('.unitPrice span').text().trim().substr(2).split('元/平米')[0],
                             url: items.eq(i).find('a.CLICKDATA').attr('href'),
                             from: 'lianjia'
